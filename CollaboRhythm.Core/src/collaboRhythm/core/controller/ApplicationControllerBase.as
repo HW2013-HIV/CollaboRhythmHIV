@@ -626,6 +626,7 @@ package collaboRhythm.core.controller
 					_collaborationLobbyNetConnectionService, "isConnecting");
 			BindingUtils.bindSetter(collaborationLobbyHasConnectionFailed_changeHandler,
 					_collaborationLobbyNetConnectionService, "hasConnectionFailed");
+
 			if (collaborationView != null)
 				collaborationView.init(_collaborationController);
 		}
@@ -1333,6 +1334,9 @@ package collaboRhythm.core.controller
 					connectivityState = ConnectivityView.CONNECT_FAILED_STATE;
 					_connectivityView.detailsMessage = "Connection to collaboration server " + settings.rtmpBaseURI +
 							" failed. You will not be able to access video messages or synchronization messages if data is changed from another device.";
+
+					//TG:Hack: to hide
+					connectivityState = null;
 				}
 
 				if (connectivityState)
@@ -1408,8 +1412,17 @@ package collaboRhythm.core.controller
 
 		private function connectivityView_ignoreHandler(event:ConnectivityEvent):void
 		{
-			_healthRecordServiceFacade.resetErrorChangeSets();
-			_collaborationLobbyNetConnectionService.hasConnectionFailed = false;
+			if(_healthRecordServiceFacade)
+			{
+				_healthRecordServiceFacade.resetErrorChangeSets();
+				_collaborationLobbyNetConnectionService.hasConnectionFailed = false;
+
+			}
+			/*else
+			{
+				updateConnectivityView();
+			}*/
+
 			restoreFocus();
 		}
 
