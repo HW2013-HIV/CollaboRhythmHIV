@@ -50,8 +50,9 @@
 		<pluginSearchPath>$APPLICATION_DIRECTORY$/../../CollaboRhythm.Plugins.InsulinTitrationSupport/bin-debug</pluginSearchPath>
 		<pluginSearchPath>$APPLICATION_DIRECTORY$/../../CollaboRhythm.Plugins.ForaD40b/bin-debug</pluginSearchPath>
 		<pluginSearchPath>$APPLICATION_DIRECTORY$/../../CollaboRhythm.Plugins.Messages/bin-debug</pluginSearchPath>
-		<pluginSearchPath>$APPLICATION_DIRECTORY$/../../CollaboRhythm.Plugins.Problems.HIV/bin-debug</pluginSearchPath>
+		<!--<pluginSearchPath>$APPLICATION_DIRECTORY$/../../CollaboRhythm.Plugins.Problems.HIV/bin-debug</pluginSearchPath>-->
 		<pluginSearchPath>$APPLICATION_DIRECTORY$/../../CollaboRhythm.Plugins.BloodPressure/bin-debug</pluginSearchPath>
+		<pluginSearchPath>$APPLICATION_DIRECTORY$/../../out/production/HW2013HIV.Plugins.Problems.HIV</pluginSearchPath>
 		<!-- This path is for the plugins that are installed with the application -->
 		<pluginSearchPath>$APPLICATION_DIRECTORY$/plugins/SchedulePluginModule.swf</pluginSearchPath>
 		<pluginSearchPath>$APPLICATION_DIRECTORY$/plugins/HealthChartsPluginModule.swf</pluginSearchPath>
@@ -59,7 +60,7 @@
 		<pluginSearchPath>$APPLICATION_DIRECTORY$/plugins/EquipmentPluginModule.swf</pluginSearchPath>
 		<pluginSearchPath>$APPLICATION_DIRECTORY$/plugins/InsulinPluginModule.swf</pluginSearchPath>
 		<pluginSearchPath>$APPLICATION_DIRECTORY$/plugins/InsulinTitrationSupportPluginModule.swf</pluginSearchPath>
-		<pluginSearchPath>$APPLICATION_DIRECTORY$/plugins/HIVPluginModule.swf</pluginSearchPath>
+		<!--<pluginSearchPath>$APPLICATION_DIRECTORY$/plugins/HIVPluginModule.swf</pluginSearchPath>-->
 		<pluginSearchPath>$APPLICATION_DIRECTORY$/plugins</pluginSearchPath>
 	</pluginSearchPaths>
 	<demoModeEnabled>true</demoModeEnabled>
@@ -83,7 +84,8 @@
 				<appDescriptor>collaboRhythm.plugins.healthCharts.controller::HealthChartsAppController</appDescriptor>
 				<appDescriptor>collaboRhythm.plugins.messages.controller::MessagesAppController</appDescriptor>
 				<appDescriptor>collaboRhythm.plugins.insulinTitrationSupport.controller::InsulinTitrationFAQAppController</appDescriptor>
-				<appDescriptor>collaboRhythm.plugins.problems.HIV.controller::HIVAppController</appDescriptor>
+				<!--<appDescriptor>collaboRhythm.plugins.problems.HIV.controller::HIVAppController</appDescriptor>-->
+				<appDescriptor>hw2013HIV.plugins.problems.HIV.controller::HIVAppController</appDescriptor>
 			</appDescriptors>
 		</appGroup>
 	</appGroups>
