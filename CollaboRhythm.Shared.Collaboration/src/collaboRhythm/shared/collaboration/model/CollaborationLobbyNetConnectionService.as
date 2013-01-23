@@ -123,8 +123,14 @@ package collaboRhythm.shared.collaboration.model
 				_logger.info(COLLABORATION_LOBBY + " initial connection attempt...");
 			}
 			isConnecting = true;
-			_netConnection.connect(_rtmpURI, _activeAccount.accountId, Account.COLLABORATION_LOBBY_AVAILABLE,
-					_activeAccount.allSharingAccounts.keys.toArray());
+
+			//TG:Hack: to remove flash media
+			{
+			/*_netConnection.connect(_rtmpURI, _activeAccount.accountId, Account.COLLABORATION_LOBBY_AVAILABLE,
+					_activeAccount.allSharingAccounts.keys.toArray());*/
+			_automaticRetryEnabled = false;
+			connectionFailedHandler();
+			}
 		}
 
 		private function netConnection_NetStatusHandler(event:NetStatusEvent):void
