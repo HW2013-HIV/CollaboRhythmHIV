@@ -21,15 +21,24 @@
 					   xmlns:view="hw2013HIV.plugins.problems.HIV.view.*"
 					   title="HIV">
 	<fx:Script><![CDATA[
+		import collaboRhythm.shared.model.healthRecord.document.MedicationOrder;
+
 		import hw2013HIV.plugins.problems.HIV.controller.HIVAppController;
 		import hw2013HIV.plugins.problems.HIV.model.HIVModel;
 		import collaboRhythm.shared.collaboration.model.CollaborationLobbyNetConnectionServiceProxy;
 		import collaboRhythm.shared.collaboration.model.CollaborationModel;
 
+		import mx.collections.ArrayCollection;
+
+		import mx.collections.IList;
+
+		import spark.events.IndexChangeEvent;
+
 		[Bindable]
 		private var _controller:HIVAppController;
 		private var _model:HIVModel;
 		private var _collaborationLobbyNetConnectionServiceProxy:CollaborationLobbyNetConnectionServiceProxy;
+		private var _hivMedicationsArrayCollection:ArrayCollection;
 
 		override public function set data(value:Object):void
 		{
@@ -37,12 +46,21 @@
 
 			_controller = value as HIVAppController;
 			_model = _controller.model;
+			_hivMedicationsArrayCollection = _model.hivMedicationsArrayCollection;
 
 			_collaborationLobbyNetConnectionServiceProxy = _controller.collaborationLobbyNetConnectionServiceProxy as
 					CollaborationLobbyNetConnectionServiceProxy;
 		}
+
+		private function hivMedicationList_changeHandler(event:IndexChangeEvent):void
+		{
+			var medicationOrder:MedicationOrder = _hivMedicationsArrayCollection.getItemAt(event.newIndex) as MedicationOrder;
+			_controller.scheduleMedication(medicationOrder);
+		}
+
+
 		]]></fx:Script>
 	<s:VGroup width="100%" height="100%" gap="0">
-		<s:Label text="Hello HIV!"/>
+		<s:List width="100%" height="100%" dataProvider="{_hivMedicationsArrayCollection}" itemRenderer="hw2013HIV.plugins.problems.HIV.view.HIVMedicationItemRenderer" change="hivMedicationList_changeHandler(event)"/>
 	</s:VGroup>
 </tablet:TabletViewBase>

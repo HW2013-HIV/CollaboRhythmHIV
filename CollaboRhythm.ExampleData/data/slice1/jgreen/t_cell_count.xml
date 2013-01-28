@@ -1,0 +1,9 @@
+<VitalSign xmlns="http://indivo.org/vocab/xml/documents#">
+	<name>CD4 TCell Count</name>
+	<measuredBy>mbrooks@records.media.mit.edu</measuredBy>
+	<dateMeasuredStart>2011-07-16T13:07:00Z</dateMeasuredStart>
+	<result>
+		<value>250</value>
+		<unit abbrev="cells per mL3">cells per cubic milliLiter</unit>
+	</result>
+</VitalSign>

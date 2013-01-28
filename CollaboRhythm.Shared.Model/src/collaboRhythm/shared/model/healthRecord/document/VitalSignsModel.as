@@ -6,6 +6,8 @@ package collaboRhythm.shared.model.healthRecord.document
 
 	import j2as3.collection.HashMap;
 
+	import j2as3.collection.HashMap;
+
 	import mx.collections.ArrayCollection;
 
 	[Bindable]
@@ -24,7 +26,9 @@ package collaboRhythm.shared.model.healthRecord.document
 		public static const CALORIC_INTAKE_CATEGORY:String = "Caloric Intake";
 		public static const PEAK_EXPIRATORY_FLOW_RATE_CATEGORY:String = "Peak Expiratory Flow Rate";
 		public static const STEP_COUNT_CATEGORY:String = "Step Count";
-		
+		public static const VIRAL_LOAD_CATEGORY:String = "Viral Load";
+		public static const CD4_TCELL_COUNT_CATEGORY:String = "CD4 TCell Count";
+
 		public static const SUPPORTED_CATEGORIES:Vector.<String> = new <String>[
 			SYSTOLIC_CATEGORY,
 			DIASTOLIC_CATEGORY,

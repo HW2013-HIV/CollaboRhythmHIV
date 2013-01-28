@@ -1,0 +1,9 @@
+<VitalSign xmlns="http://indivo.org/vocab/xml/documents#">
+	<name>Viral Load</name>
+	<measuredBy>mbrooks@records.media.mit.edu</measuredBy>
+	<dateMeasuredStart>2011-07-16T13:07:00Z</dateMeasuredStart>
+	<result>
+		<value>1287</value>
+		<unit abbrev="IU">international units</unit>
+	</result>
+</VitalSign>

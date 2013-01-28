@@ -1,12 +1,19 @@
 package collaboRhythm.plugins.problems.HIV.model
 {
 	import collaboRhythm.shared.apps.healthCharts.model.HealthChartsModel;
+	import collaboRhythm.shared.apps.vitals.controller.VitalsAppController;
 	import collaboRhythm.shared.model.Account;
 	import collaboRhythm.shared.model.Record;
 	import collaboRhythm.shared.model.healthRecord.document.MedicationFill;
 	import collaboRhythm.shared.model.healthRecord.document.MedicationScheduleItem;
+	import collaboRhythm.shared.model.healthRecord.document.VitalSign;
+	import collaboRhythm.shared.model.healthRecord.document.VitalSignsModel;
 
 	import flash.display.MovieClip;
+
+	import mx.binding.utils.BindingUtils;
+
+	import mx.collections.ArrayCollection;
 
 	public class HIVSimulationModel
 	{
@@ -36,14 +43,27 @@ package collaboRhythm.plugins.problems.HIV.model
 		private var opentcellPos:Array;
 		private var _usedtcellPos:Array;
 		private var _activeRecord:Record;
+		private var _cd4CellCountsCollection:ArrayCollection;
 
 		public function HIVSimulationModel(activeRecordAccount:Account)
 		{
 			_activeRecord = activeRecordAccount.primaryRecord;
+
+			BindingUtils.bindSetter(vitalSignsModel_isInitializedHandler, _activeRecord.vitalSignsModel, "isInitialized");
+
+
+		}
+
+		private function vitalSignsModel_isInitializedHandler(isStitched:Boolean):void
+		{
+			_cd4CellCountsCollection = _activeRecord.vitalSignsModel.vitalSignsByCategory[VitalSignsModel.CD4_TCELL_COUNT_CATEGORY] as ArrayCollection;
 		}
 
 		public function updateSimulationData():void
 		{
+//			var mostRecentCD4CellCount:VitalSign = _cd4CellCountsCollection.getItemAt(_cd4CellCountsCollection.length - 1);
+//			_cd4Count = parseInt(mostRecentCD4CellCount.result.textValue);
+
 			tcells = [];
 			freeTcells = [];
 			viruses = [];

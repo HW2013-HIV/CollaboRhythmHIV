@@ -4,6 +4,7 @@ package hw2013HIV.plugins.problems.HIV.controller
 	import collaboRhythm.shared.collaboration.model.SynchronizationService;
 	import collaboRhythm.shared.controller.apps.AppControllerBase;
 	import collaboRhythm.shared.controller.apps.AppControllerConstructorParams;
+	import collaboRhythm.shared.model.healthRecord.document.MedicationOrder;
 
 	import hw2013HIV.plugins.problems.HIV.model.HIVModel;
 
@@ -32,8 +33,26 @@ package hw2013HIV.plugins.problems.HIV.controller
 					_collaborationLobbyNetConnectionServiceProxyLocal);
 		}
 
+		override public function initialize():void
+		{
+			super.initialize();
+			initializeHIVModel();
+
+			updateWidgetViewModel();
+		}
+
+		private function initializeHIVModel():void
+		{
+			if (_model == null)
+			{
+				_model = new HIVModel(_activeRecordAccount);
+			}
+		}
+
 		override protected function createWidgetView():UIComponent
 		{
+			initializeHIVModel();
+
 			_widgetView = new HIVButtonWidgetView();
 			return _widgetView;
 		}
@@ -111,6 +130,11 @@ package hw2013HIV.plugins.problems.HIV.controller
 		public function get model():HIVModel
 		{
 			return _model;
+		}
+
+		public function scheduleMedication(medicationOrder:MedicationOrder):void
+		{
+			_model.scheduleMedication(medicationOrder);
 		}
 	}
 }

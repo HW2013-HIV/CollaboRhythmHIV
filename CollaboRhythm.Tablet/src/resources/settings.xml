@@ -16,10 +16,10 @@
   ~ <http://www.gnu.org/licenses/>.
   -->
 <settings xmlns="http://collaborhythm.org/application/settings">
-	<mode>patient</mode>
+	<mode>clinician</mode>
 	<indivoServerBaseURL>https://indivo-demo.media.mit.edu:8000</indivoServerBaseURL>
-	<username>shared-csantos</username>
-	<password>shared-csantos</password>
+	<username>shared-jking</username>
+	<password>shared-jking</password>
 	<clinicianTeamMembers>
 		<clinicianTeamMember>shared-jking@records.media.mit.edu</clinicianTeamMember>
 	</clinicianTeamMembers>
